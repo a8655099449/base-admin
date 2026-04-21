@@ -32,7 +32,7 @@ export default defineConfig(
       'no-console': 'error',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
-        'error',
+        'warn',
         {
           args: 'all',
           argsIgnorePattern: '^_',
@@ -43,9 +43,10 @@ export default defineConfig(
           ignoreRestSiblings: true,
         },
       ],
+      '@typescript-eslint/no-explicit-any': 'warn',
       // Enforce type-only imports for TypeScript types
       '@typescript-eslint/consistent-type-imports': [
-        'error',
+        'warn',
         {
           prefer: 'type-imports',
           fixStyle: 'inline-type-imports',

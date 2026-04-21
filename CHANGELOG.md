@@ -197,9 +197,9 @@
 ### BREAKING CHANGE
 
 - Restructured the entire folder
-hierarchy to adopt a feature-based structure. This
-change improves code modularity and maintainability
-but introduces breaking changes.
+  hierarchy to adopt a feature-based structure. This
+  change improves code modularity and maintainability
+  but introduces breaking changes.
 
 ### Feat
 
@@ -255,7 +255,7 @@ but introduces breaking changes.
 - solve asChild attribute issue in custom button (#31)
 - improve custom Button component (#28)
 
-## v1.0.0-beta.3 (2024-08-25)
+## ∏v1.0.0-beta.3 (2024-08-25)
 
 ### Feat
 

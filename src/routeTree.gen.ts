@@ -8,37 +8,38 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from './routes/__root'
-import { Route as ClerkRouteRouteImport } from './routes/clerk/route'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
-import { Route as errors503RouteImport } from './routes/(errors)/503'
-import { Route as errors500RouteImport } from './routes/(errors)/500'
-import { Route as errors404RouteImport } from './routes/(errors)/404'
-import { Route as errors403RouteImport } from './routes/(errors)/403'
-import { Route as errors401RouteImport } from './routes/(errors)/401'
-import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
-import { Route as authSignIn2RouteImport } from './routes/(auth)/sign-in-2'
-import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
-import { Route as authOtpRouteImport } from './routes/(auth)/otp'
-import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-password'
-import { Route as ClerkAuthenticatedRouteRouteImport } from './routes/clerk/_authenticated/route'
-import { Route as ClerkauthRouteRouteImport } from './routes/clerk/(auth)/route'
-import { Route as AuthenticatedSettingsRouteRouteImport } from './routes/_authenticated/settings/route'
-import { Route as AuthenticatedUsersIndexRouteImport } from './routes/_authenticated/users/index'
-import { Route as AuthenticatedTasksIndexRouteImport } from './routes/_authenticated/tasks/index'
-import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings/index'
-import { Route as AuthenticatedHelpCenterIndexRouteImport } from './routes/_authenticated/help-center/index'
-import { Route as AuthenticatedChatsIndexRouteImport } from './routes/_authenticated/chats/index'
-import { Route as AuthenticatedAppsIndexRouteImport } from './routes/_authenticated/apps/index'
-import { Route as ClerkAuthenticatedUserManagementRouteImport } from './routes/clerk/_authenticated/user-management'
-import { Route as ClerkauthSignUpRouteImport } from './routes/clerk/(auth)/sign-up'
-import { Route as ClerkauthSignInRouteImport } from './routes/clerk/(auth)/sign-in'
-import { Route as AuthenticatedSettingsNotificationsRouteImport } from './routes/_authenticated/settings/notifications'
-import { Route as AuthenticatedSettingsDisplayRouteImport } from './routes/_authenticated/settings/display'
-import { Route as AuthenticatedSettingsAppearanceRouteImport } from './routes/_authenticated/settings/appearance'
-import { Route as AuthenticatedSettingsAccountRouteImport } from './routes/_authenticated/settings/account'
-import { Route as AuthenticatedErrorsErrorRouteImport } from './routes/_authenticated/errors/$error'
+import { Route as rootRouteImport } from './pages/__root'
+import { Route as ClerkRouteRouteImport } from './pages/clerk/route'
+import { Route as AuthenticatedRouteRouteImport } from './pages/_authenticated/route'
+import { Route as AuthenticatedIndexRouteImport } from './pages/_authenticated/index'
+import { Route as errors503RouteImport } from './pages/(errors)/503'
+import { Route as errors500RouteImport } from './pages/(errors)/500'
+import { Route as errors404RouteImport } from './pages/(errors)/404'
+import { Route as errors403RouteImport } from './pages/(errors)/403'
+import { Route as errors401RouteImport } from './pages/(errors)/401'
+import { Route as authSignUpRouteImport } from './pages/(auth)/sign-up'
+import { Route as authSignIn2RouteImport } from './pages/(auth)/sign-in-2'
+import { Route as authSignInRouteImport } from './pages/(auth)/sign-in'
+import { Route as authOtpRouteImport } from './pages/(auth)/otp'
+import { Route as authForgotPasswordRouteImport } from './pages/(auth)/forgot-password'
+import { Route as ClerkAuthenticatedRouteRouteImport } from './pages/clerk/_authenticated/route'
+import { Route as ClerkauthRouteRouteImport } from './pages/clerk/(auth)/route'
+import { Route as AuthenticatedSettingsRouteRouteImport } from './pages/_authenticated/settings/route'
+import { Route as AuthenticatedUsersIndexRouteImport } from './pages/_authenticated/users/index'
+import { Route as AuthenticatedTasksIndexRouteImport } from './pages/_authenticated/tasks/index'
+import { Route as AuthenticatedSettingsIndexRouteImport } from './pages/_authenticated/settings/index'
+import { Route as AuthenticatedHelpCenterIndexRouteImport } from './pages/_authenticated/help-center/index'
+import { Route as AuthenticatedChatsIndexRouteImport } from './pages/_authenticated/chats/index'
+import { Route as AuthenticatedAppsIndexRouteImport } from './pages/_authenticated/apps/index'
+import { Route as ClerkAuthenticatedUserManagementRouteImport } from './pages/clerk/_authenticated/user-management'
+import { Route as ClerkauthSignUpRouteImport } from './pages/clerk/(auth)/sign-up'
+import { Route as ClerkauthSignInRouteImport } from './pages/clerk/(auth)/sign-in'
+import { Route as AuthenticatedSettingsNotificationsRouteImport } from './pages/_authenticated/settings/notifications'
+import { Route as AuthenticatedSettingsDisplayRouteImport } from './pages/_authenticated/settings/display'
+import { Route as AuthenticatedSettingsAppearanceRouteImport } from './pages/_authenticated/settings/appearance'
+import { Route as AuthenticatedSettingsAccountRouteImport } from './pages/_authenticated/settings/account'
+import { Route as AuthenticatedSettingMenuRouteImport } from './pages/_authenticated/setting/menu'
+import { Route as AuthenticatedErrorsErrorRouteImport } from './pages/_authenticated/errors/$error'
 
 const ClerkRouteRoute = ClerkRouteRouteImport.update({
   id: '/clerk',
@@ -190,6 +191,12 @@ const AuthenticatedSettingsAccountRoute =
     path: '/account',
     getParentRoute: () => AuthenticatedSettingsRouteRoute,
   } as any)
+const AuthenticatedSettingMenuRoute =
+  AuthenticatedSettingMenuRouteImport.update({
+    id: '/setting/menu',
+    path: '/setting/menu',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedErrorsErrorRoute =
   AuthenticatedErrorsErrorRouteImport.update({
     id: '/errors/$error',
@@ -212,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/500': typeof errors500Route
   '/503': typeof errors503Route
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/setting/menu': typeof AuthenticatedSettingMenuRoute
   '/settings/account': typeof AuthenticatedSettingsAccountRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayRoute
@@ -240,6 +248,7 @@ export interface FileRoutesByTo {
   '/503': typeof errors503Route
   '/': typeof AuthenticatedIndexRoute
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/setting/menu': typeof AuthenticatedSettingMenuRoute
   '/settings/account': typeof AuthenticatedSettingsAccountRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/settings/display': typeof AuthenticatedSettingsDisplayRoute
@@ -273,6 +282,7 @@ export interface FileRoutesById {
   '/(errors)/503': typeof errors503Route
   '/_authenticated/': typeof AuthenticatedIndexRoute
   '/_authenticated/errors/$error': typeof AuthenticatedErrorsErrorRoute
+  '/_authenticated/setting/menu': typeof AuthenticatedSettingMenuRoute
   '/_authenticated/settings/account': typeof AuthenticatedSettingsAccountRoute
   '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/_authenticated/settings/display': typeof AuthenticatedSettingsDisplayRoute
@@ -304,6 +314,7 @@ export interface FileRouteTypes {
     | '/500'
     | '/503'
     | '/errors/$error'
+    | '/setting/menu'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
@@ -332,6 +343,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/'
     | '/errors/$error'
+    | '/setting/menu'
     | '/settings/account'
     | '/settings/appearance'
     | '/settings/display'
@@ -364,6 +376,7 @@ export interface FileRouteTypes {
     | '/(errors)/503'
     | '/_authenticated/'
     | '/_authenticated/errors/$error'
+    | '/_authenticated/setting/menu'
     | '/_authenticated/settings/account'
     | '/_authenticated/settings/appearance'
     | '/_authenticated/settings/display'
@@ -599,6 +612,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsAccountRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteRoute
     }
+    '/_authenticated/setting/menu': {
+      id: '/_authenticated/setting/menu'
+      path: '/setting/menu'
+      fullPath: '/setting/menu'
+      preLoaderRoute: typeof AuthenticatedSettingMenuRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/errors/$error': {
       id: '/_authenticated/errors/$error'
       path: '/errors/$error'
@@ -636,6 +656,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSettingsRouteRoute: typeof AuthenticatedSettingsRouteRouteWithChildren
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedErrorsErrorRoute: typeof AuthenticatedErrorsErrorRoute
+  AuthenticatedSettingMenuRoute: typeof AuthenticatedSettingMenuRoute
   AuthenticatedAppsIndexRoute: typeof AuthenticatedAppsIndexRoute
   AuthenticatedChatsIndexRoute: typeof AuthenticatedChatsIndexRoute
   AuthenticatedHelpCenterIndexRoute: typeof AuthenticatedHelpCenterIndexRoute
@@ -647,6 +668,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSettingsRouteRoute: AuthenticatedSettingsRouteRouteWithChildren,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedErrorsErrorRoute: AuthenticatedErrorsErrorRoute,
+  AuthenticatedSettingMenuRoute: AuthenticatedSettingMenuRoute,
   AuthenticatedAppsIndexRoute: AuthenticatedAppsIndexRoute,
   AuthenticatedChatsIndexRoute: AuthenticatedChatsIndexRoute,
   AuthenticatedHelpCenterIndexRoute: AuthenticatedHelpCenterIndexRoute,
